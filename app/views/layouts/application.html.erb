@@ -7,13 +7,17 @@
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag "vendor/modernizr" 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "vendor/modernizr", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+		<div class="row">
+			<div class="large-10 columns">
+		    	<%= yield %>
+	    </div>
+	   </div>
+    
+		<%= javascript_include_tag "application" %>
   </body>
 </html>
