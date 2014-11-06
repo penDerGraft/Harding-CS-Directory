@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'staic_pages#home'
+  root 'static_pages#home'
+  match '/about',  to: 'static_pages#about',   via: 'get'
 
   resources :users
 
