@@ -9,6 +9,7 @@ gem 'jbuilder',             '2.1.3'
 gem 'rails-html-sanitizer', '1.0'
 gem 'sdoc',                 '0.4.0', group: :doc
 gem 'foundation-rails'
+gem 'bcrypt',               '3.1.7'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

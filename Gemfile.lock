@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.7)
     binding_of_caller (0.7.3.pre1)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -202,6 +203,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (= 3.1.7)
   byebug (= 3.4.0)
   capybara (~> 2.4.4)
   coffee-rails (= 4.0.1)
