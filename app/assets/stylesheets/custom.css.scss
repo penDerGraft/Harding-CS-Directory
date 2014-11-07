@@ -1,0 +1,9 @@
+@import "foundation";
+
+/*   footer   */
+
+.custom-list {
+		@include inline-list;
+		font-size: .8em;
+	
+}
