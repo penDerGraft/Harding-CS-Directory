@@ -15,10 +15,14 @@
   	<%= render 'layouts/header' %>
 		<div class="row">
 			<div class="large-12 columns">
-		    	<%= yield %>
+				<% flash.each do |alert, message| %>
+					<%= content_tag(:div, message, class: "alert-box #{alert}") %>
+				<% end %> 
+	    	<%= yield %>
+	    	<%= render 'layouts/footer' %>
 	    </div>
 	  </div>
-	  <%= render 'layouts/footer' %>
+	  
     
 		<%= javascript_include_tag "application" %>
   </body>

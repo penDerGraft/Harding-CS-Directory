@@ -1,10 +1,14 @@
 <% provide(:title, @user.name) %>
 
+<div class="large-4 large-centered columns">
+		<div class="user-data">
+			<h2>
+				<%= gravatar @user %>
+			  <%= @user.name %>
+			</h2>
+			<%= link_to 'Edit', edit_user_path(@user) %> |
+			<%= link_to 'Back', users_path %>
+	</div>
+</div>
 
-<h3>
-	<%= gravatar @user %>
-  <%= @user.name %>
-</h3>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

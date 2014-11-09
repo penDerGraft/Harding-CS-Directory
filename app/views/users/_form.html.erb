@@ -1,29 +1,40 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="large-6 large-centered columns">
+	<%= form_for(@user) do |f| %>
+	  <% if @user.errors.any? %>
+	    <div>
+	      <h4 class="alert-box alert text-center">
+	      	There were <%= pluralize(@user.errors.count, "error") %>
+	      </h4>       
+	     	<ul class="panel callout radius">
+	      <% @user.errors.full_messages.each do |message| %>
+	        <li class="form-errors"><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+	  <div>
+	    <%= f.label :name %>
+	    <%= f.text_field :name %>
+	  </div>
+	  <div>
+	    <%= f.label :email %>
+	    <%= f.text_field :email %>
+	  </div>
+	  <div>
+	    <%= f.label :city %>
+	    <%= f.text_field :city %>
+	  </div>
+	  <div>
+	  	<%= f.label :password %>
+	  	<%= f.password_field :password %>	  	
+	  </div>
+	  <div>
+	  	<%= f.label :password_confirmation, "Password Confirmation" %>
+	  	<%= f.password_field :password_confirmation %>	  	
+	  </div>
+	  <div>
+	    <%= f.submit class: "button expand" %>
+	  </div>
+	<% end %>
+</div>
