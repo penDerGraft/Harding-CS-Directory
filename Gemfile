@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.4'
 
 gem 'rails'                
 gem 'uglifier',             '2.5.1'

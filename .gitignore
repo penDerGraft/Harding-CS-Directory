@@ -19,5 +19,7 @@ doc/
 .idea
 .secret
 
+config/secrets.yml
+
 # Ignore Spring files.
 /spring/*.pid
