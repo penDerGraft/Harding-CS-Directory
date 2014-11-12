@@ -13,6 +13,11 @@ describe User do
 	it { should respond_to(:name)  }
 	it { should respond_to(:email) }
 	it { should respond_to(:city)  }
+	it { should respond_to(:password_digest) }
+	it { should respond_to(:password) }
+	it { should respond_to(:password_confirmation) }
+	it { should respond_to(:auth_token) }
+	it { should respond_to(:authenticate) }
 	
 	describe "when name is blank" do
 		before { @user.name = ' ' }
@@ -77,5 +82,12 @@ describe User do
 		
 		it { should_not be_valid}
 	end
+
+	describe "authenticity token" do
+		before { @user.save }
+
+		it { expect(@user.auth_token).not_to be_blank }
+	end
+
 			
 end

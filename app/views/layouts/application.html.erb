@@ -16,7 +16,11 @@
 		<div class="row">
 			<div class="large-12 columns">
 				<% flash.each do |alert, message| %>
-					<%= content_tag(:div, message, class: "alert-box #{alert}") %>
+					<%= content_tag(:div, :data => { :alert => nil }, 
+													class: "alert-box #{alert}") do %>
+						<%=  content_tag(:div, message) %>
+						<%=  link_to raw('&times;'), '#', class: "close" %>
+					<% end %>
 				<% end %> 
 	    	<%= yield %>
 	    	<%= render 'layouts/footer' %>
