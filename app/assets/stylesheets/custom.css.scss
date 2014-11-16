@@ -2,20 +2,35 @@
 
 /*   user pages  */
 
-//.gravatar {
-//		margin-right: 10px;
-//}
+.edit-gravatar {
+	text-align: center;
+}
+
+.gravatar {
+	margin: 5px;
+}
 
 .user-data {
-		text-align: center;
-		margin: auto;
+	text-align: center;
+	margin: auto;
+}
+
+.users {
+	list-style: none;
+	margin: 10px 0 0 0;
+	li {
+		margin: 0 0 10px 0;
+		border: 2px solid $panel-border-color;
+		background-color: $panel-bg;
+		padding-left: 0;
+	}
 }
  
 /*   forms    */
 
 
 .field_with_errors {
-		@extend .error;
+	@extend .error;
 }
 
 .form-errors {
@@ -27,8 +42,8 @@
 /*   footer   */
 
 .custom-list {
-		@include inline-list;
-		font-size: .8em;
+	@include inline-list;
+	font-size: .8em;
 	
 }
 

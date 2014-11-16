@@ -2,14 +2,16 @@
 	<%= form_for(@user) do |f| %>
 	  <% if @user.errors.any? %>
 	    <div>
-	      <h4 class="alert-box alert text-center">
-	      	There were <%= pluralize(@user.errors.count, "error") %>
-	      </h4>       
+	      <div data-alert class="alert-box alert radius text-center">
+	      	<%= content_tag(:span, "There were") %>  
+	      	<%= content_tag(:span, pluralize(@user.errors.count, "error")) %>
+			<%=  link_to raw('&times;'), '#', class: "close" %>
+	      </div>       
 	     	<ul class="panel callout radius">
-	      <% @user.errors.full_messages.each do |message| %>
-	        <li class="form-errors"><%= message %></li>
-	      <% end %>
-	      </ul>
+	     		<% @user.errors.full_messages.each do |message| %>
+	        		<li class="form-errors"><%= message %></li>
+	      		<% end %>
+	      	</ul>
 	    </div>
 	  <% end %>
 

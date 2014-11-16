@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111221940) do
+ActiveRecord::Schema.define(version: 20141116011422) do
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20141111221940) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "auth_token"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token"

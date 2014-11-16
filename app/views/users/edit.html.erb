@@ -1,6 +1,11 @@
-<h1>Editing user</h1>
+<% provide(:title, "Edit user") %>
+<h1 class="text-center">Update Your Information</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="large-4 large-centered columns text-center">
+	<h4>Gravatar</h4>
+	<div><%= gravatar @user %></div>
+	<a href="http://gravatar.com/emails" target=_blank class="text-center">change</a>
+</div>
+ 

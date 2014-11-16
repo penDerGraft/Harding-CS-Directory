@@ -17,8 +17,21 @@ describe User do
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:auth_token) }
+	it { should respond_to(:admin) }
 	it { should respond_to(:authenticate) }
-	
+
+	it { should be_valid}
+	it { should_not be_admin }
+
+	describe "with admin attribute" do
+		before do
+			@user.save!
+			@user.toggle!(:admin)
+		end
+		
+		it { should be_admin }	
+	end
+		
 	describe "when name is blank" do
 		before { @user.name = ' ' }
 		it { should_not be_valid}

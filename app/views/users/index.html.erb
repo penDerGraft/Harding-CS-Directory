@@ -1,29 +1,14 @@
-<h1>Listing users</h1>
+<% provide(:title, "Alumni") %>
+<div class="large-10 columns">
+  <h1>CS Alumni</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>City</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <%= will_paginate @collection, renderer: FoundationPagination::Rails %>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.city %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <ul class="users clearfix">
+    <%= render @users %>
+  </ul>
 
-<br>
+  <%= will_paginate @collection, renderer: FoundationPagination::Rails %>
 
-<%= link_to 'New User', new_user_path %>
+</div>
+
