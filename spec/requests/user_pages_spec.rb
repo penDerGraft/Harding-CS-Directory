@@ -30,8 +30,6 @@ describe "User pages" do
 			fill_in "Email",    with: user.email
 		    fill_in "Password", with: user.password
 			click_button "Sign in"
-			FactoryGirl.create(:user, name: "Jim", email: "jim@dunder.com")
-			FactoryGirl.create(:user, name: "Pam", email: "pam@dunder.com")
 			visit users_path
 		end
 
@@ -46,7 +44,7 @@ describe "User pages" do
 
 			it "should list all users" do
 				User.paginate(page: 1).each do |u|
-					expect(page).to have_selector("li", text: u.name, text: u.city) 
+					expect(page).to have_selector("li", text: u.name, text: u.city, text: u.state) 
 				end	
 			end
 		end
@@ -90,10 +88,13 @@ describe "User pages" do
 		
 		describe "when submission is valid" do
 			before do
-				fill_in "Name",     with: "Some name"
-				fill_in "Email",    with: "email@domain.com"
-				fill_in "City",     with: "Some City"
-				fill_in "Password", with: "foobar"
+				fill_in "Name",       with: "Some name"
+				fill_in "Email",      with: "email@domain.com"
+				fill_in "City",       with: "Some City"
+				select  "Texas",      from: "State"
+				fill_in "Job Title",  with: "Some Job"
+				fill_in "Company/Organization", with: "Some company"
+				fill_in "Password",   with: "foobar"
 				fill_in "Password Confirmation", with: "foobar"
 			end
 				
@@ -131,10 +132,12 @@ describe "User pages" do
 			let(:new_name) { "New name" }
 			let(:new_email) { "newemail@domain.com" }
 			let(:new_city) { "New city" }
+			let(:new_state) { "Arkansas" }
 			before do
 				fill_in "Name",     with: new_name
 				fill_in "Email",    with: new_email
 				fill_in "City",     with: new_city
+				select new_state,   :from => "State"
 				click_button "Update User"
 			end
 

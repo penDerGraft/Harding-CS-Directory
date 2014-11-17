@@ -3,8 +3,9 @@ require 'rails_helper'
 describe User do
 	
 	before do
-		@user = User.new(name: "Some User", email: "someuser@somedomain.com", city: "somecity",
-										 password: "somepassword", password_confirmation: "somepassword")
+		@user = User.new(name: "Some User", email: "someuser@somedomain.com", city: "somecity", state: "ST", 
+							job_title: "some job", company_or_organization: "some company", password: "somepassword", 
+																				password_confirmation: "somepassword")
 	end
 	
 	subject { @user }
@@ -13,6 +14,9 @@ describe User do
 	it { should respond_to(:name)  }
 	it { should respond_to(:email) }
 	it { should respond_to(:city)  }
+	it { should respond_to(:state) }
+	it { should respond_to(:job_title) }	
+	it { should respond_to(:company_or_organization) }
 	it { should respond_to(:password_digest) }
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
@@ -46,7 +50,22 @@ describe User do
 		before { @user.email = ' ' }
 		it { should_not be_valid}
 	end
-	
+
+	describe "when state is blank" do
+		before { @user.state = ' ' }
+		it { should_not be_valid}
+	end
+
+	describe "when job title is blank" do
+		before { @user.job_title = ' ' }
+		it { should_not be_valid}
+	end
+
+	describe "when company is blank" do
+		before { @user.company_or_organization = ' ' }
+		it { should_not be_valid}
+	end
+
 	describe "when name is too long" do
 		before { @user.name = 'a' * 41 }
 		it { should_not be_valid}
@@ -54,6 +73,16 @@ describe User do
 	
 	describe "when email is too long" do
 		before { @user.email = 'a' * 256 }
+		it { should_not be_valid}
+	end
+
+	describe "when job title is too long" do
+		before { @user.job_title = 'a' * 256 }
+		it { should_not be_valid}
+	end
+
+	describe "when company/organization is too long" do
+		before { @user.company_or_organization = 'a' * 256 }
 		it { should_not be_valid}
 	end
 	

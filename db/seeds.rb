@@ -7,20 +7,29 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(name:      "Brent Pendergraft",
-			 email:     "myemail@domain.com",
-			 city:      "SomeCity",
-			 password:  "foobar",
-			 password_confirmation: "foobar",
-       admin: true)
+      			 email:     "myemail@domain.com",
+      			 city:      "SomeCity",
+             state:     "Texas",
+             job_title: "Some Job",
+             company_or_organization: "some company",
+      			 password:  "foobar",
+      			 password_confirmation: "foobar",
+             admin: true)
 
 99.times do |n|
   name  = Faker::Name.name
   email = "email-#{n+1}@domain.com"
-  city  = "Scranton"
+  city  = Faker::Address.city
+  state = Faker::Address.state
+  job_title = Faker::Name.title
+  company = Faker::Company.name
   password = "password"
   User.create!(name:  name,
                email: email,
                city:  city, 
-               password:              password,
-               password_confirmation: password)
+               state: state,
+               job_title: job_title,
+               company_or_organization: company,
+               password:                password,
+               password_confirmation:   password)
 end

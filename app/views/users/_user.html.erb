@@ -1,9 +1,12 @@
  <li>
     <%= gravatar user %>
     <%= link_to(user.name, user) %>: 
-    <%= user.city %>
+    <%= user.city %>,
+    <%= user.state %>
+   	<span><%= user.job_title  %>
+    <%= user.company_or_organization %></span>
     <% if current_user.admin? && !current_user?(user) %>
     	<%= link_to "delete", user, method: :delete, 
-    								data: { confirm: "Are you sure?" } %>
+    								data: { confirm: "Are you sure?" }, class: "right" %>
     <% end %>
 </li>
