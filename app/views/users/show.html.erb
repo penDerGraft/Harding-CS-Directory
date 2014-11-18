@@ -1,12 +1,16 @@
 <% provide(:title, @user.name) %>
 
-<div class="large-5 large-centered columns">
-		<div class="user-data clearfix">
-			<h3>
-				<%= gravatar @user %>
-			 	<%= @user.name %>
-			</h3>
+<div class="large-6 large-centered columns">
+	<div class="user-data clearfix">
+		<%= gravatar @user %>
+		<h3 class="name">
+		 	<%= @user.name %>
+		</h3>
+		<h6 class="text-center"><%= @user.city %>, <%= @user.state %> </h6>
+		<h6 class="text-center"><em><%= @user.job_title %> at <%= @user.company_or_organization %></em></h6>
+		<h6 class="text-center"><%= mail_to(@user.email) %></h6>
 	</div>
+	<div class="find-btn"><%= link_to "Find Other Alumni", users_path, class: "button expand" %></div>
 </div>
 
 

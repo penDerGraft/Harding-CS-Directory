@@ -1,32 +1,30 @@
 <header>
-	<div class="sticky">
-	  <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-	    <ul class="title-area">
-	      <li class="name">
-	        <h1><%= link_to "Harding CS Connect", root_path %></h1>
-	      </li>
-	       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-	      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-	    </ul>
-	    <section class="top-bar-section">
-  	
-		<ul class="right">
-			<% if signed_in? %>
-				<li class='has-dropdown'>
-					<%= link_to 'Account', current_user %>
-					<ul class="dropdown">
-						<li><%= link_to 'Profile', current_user %></li>
-						<li><%= link_to 'Update Info', edit_user_path(current_user) %></li>
-					</ul>
-				</li>
-				<li><%= link_to 'Find Alumni', users_path %></li>	
-				<li><%= link_to 'Sign out', signout_path, method: "delete" %></li>	
-			<% else %>
-				<li><%= link_to 'Home', root_path %></li>
-				<li><%= link_to 'Sign in', signin_path %></li>
-			<% end %>
-			<li><%= link_to 'About', about_path %></li>
-		</ul>
-	  </nav>
-	</div>
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "Harding CS Connect", root_path %></h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+	
+	<ul class="right">
+		<% if signed_in? %>
+			<li class='has-dropdown'>
+				<%= link_to 'Account', current_user %>
+				<ul class="dropdown">
+					<li><%= link_to 'Profile', current_user %></li>
+					<li><%= link_to 'Update Info', edit_user_path(current_user) %></li>
+				</ul>
+			</li>
+			<li><%= link_to 'Find Alumni', users_path %></li>	
+			<li><%= link_to 'Sign out', signout_path, method: "delete" %></li>	
+		<% else %>
+			<li><%= link_to 'Home', root_path %></li>
+			<li><%= link_to 'Sign in', signin_path %></li>
+		<% end %>
+		<li><%= link_to 'About', about_path %></li>
+	</ul>
+  </nav>
 </header>

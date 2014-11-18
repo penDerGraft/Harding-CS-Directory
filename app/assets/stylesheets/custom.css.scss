@@ -8,24 +8,49 @@
 
 .gravatar {
 	margin: 5px;
+	padding-right: 5px;
 }
 
 .user-data {
 	text-align: center;
 	margin: auto;
+	@extend .panel;
+	@extend .radius;
 }
 
 .users {
 	list-style: none;
 	margin: 10px 0 0 0;
 	li {
-		margin: 0 0 10px 0;
+		margin-bottom: 10px;
 		border: 2px solid $panel-border-color;
 		background-color: $panel-bg;
-		padding-left: 0;
 	}
 }
+
+.find-btn {
+	margin: 30px;
+	text-align: center;
+}
  
+.delete {
+	margin-right: 15px;
+}
+
+.name-loc {
+	display: block;
+	margin: 10px 0 5px;
+	
+	a { 
+		font-weight: bold;
+		font-size: 1.1em;
+	}
+}
+
+.job {
+	margin-left: 20px;
+	font-style: italic;
+}
 /*   forms    */
 
 
@@ -35,6 +60,10 @@
 
 .form-errors {
 	margin-left: 20px;
+}
+
+.main-heading {
+	margin-bottom: 25px;
 }
 
 

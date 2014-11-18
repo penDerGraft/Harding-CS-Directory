@@ -1,4 +1,55 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+@import "foundation";
+
+
+
+html body {
+	background: asset_url("map.jpg") no-repeat center center fixed;
+	background-size: cover;
+
+	h1, h5, small {
+		color: $white;
+		text-shadow: 2px 2px 3px #000;		
+	}
+
+	a {
+		color: #7AD5F0;
+		&:hover {
+			color: scale-color(#7AD5F0, $lightness: 14%); 
+		}
+	}
+
+	h1 {
+		margin-bottom: 75px;
+	}
+
+}
+
+.container {
+	height: 500px
+}
+
+.form {
+	@extend .panel;
+	@include radius(
+		$radius: 5px 
+		);
+	background-color: $white;
+	padding: 10px 5px 0;
+	border-color: $oil;
+	border-width: 2px;
+	box-shadow: -1px -1px 10px $oil;
+	.dark {
+		color: $oil;
+		margin-bottom: 5px;
+		text-shadow: none;
+	}
+
+	a {
+		color: $primary-color;
+		&:hover {
+			color: $anchor-font-color-hover;	
+		}
+	}
+
+}
+

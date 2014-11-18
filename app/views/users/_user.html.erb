@@ -1,12 +1,12 @@
- <li>
-    <%= gravatar user %>
-    <%= link_to(user.name, user) %>: 
+ <li class="clearfix">
+    <span class="left"><%= gravatar user %></span>
+    <span class="name-loc"><%= link_to(user.name, user) %>: 
     <%= user.city %>,
-    <%= user.state %>
-   	<span><%= user.job_title  %>
+    <%= user.state %></span>
+   	<span class="job"><%= user.job_title  %> at 
     <%= user.company_or_organization %></span>
     <% if current_user.admin? && !current_user?(user) %>
     	<%= link_to "delete", user, method: :delete, 
-    								data: { confirm: "Are you sure?" }, class: "right" %>
+    								data: { confirm: "Are you sure?" }, class: "right delete" %>
     <% end %>
 </li>

@@ -1,2 +1,12 @@
-<h1>About</h1>
-<p>This page tells about Harding CS Connect</p>
+<div class="large-6 columns">
+	<h1 class="main-heading">About This Site</h1>
+	<p>If you've ever gotten a job based on the recommendation of a friend, you know the value of connections. The goal of Harding CS Connect is to help graduates from the Harding Computer Science program get in touch with other alumni in working in different types of jobs all over the country. Obviously having a connection isn't a guarantee you'll get hired, but sometimes the hardest part is just knowing where to start.</p>
+
+	<p>Besides just helping graduates find work, Harding CS Connect provides the space for former classmates to reconnect, or for professors to see where their students are now. So if you're a recent Harding CS grad looking for a job, or just trying to find old friends, 
+	<% if !signed_in? %>
+		<%= link_to "Sign up now", signup_path %> (we promise there won't be any annoying emails or hidden obligations)
+	<% else %>
+		<%= link_to "find other alumni now", signup_path %>
+	<% end %> 
+	and see how you can connect.</p>
+</div>

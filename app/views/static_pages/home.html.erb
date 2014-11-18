@@ -1,4 +1,28 @@
-
-<h1>Harding CS Connect</h1>
-<h2>Home</h2>
-<p>Find me in app/views/staic_pages/home.html.erb</p>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "static_pages", media: 'all', 'data-turbolinks-track' => true  %>
+<% end %>
+<div class="container row">
+	<div class="large-6 columns">
+		<h1>Harding CS Connect</h1>
+		<h5>Harding University’s <em>Computer Science Connect</em> is an easy 
+			way to keep up with Alumni of Harding’s CS program. If you’re looking
+			to connect with CS grads and see where they are now, you’re in the right place. </h5>
+	</div>
+	<div class="large-4 columns right form">
+		<h3 class="text-center">Sign in</h3>
+		<%= form_for(:session, url: signin_path) do |f| %>
+		  <div class="large-10 large-centered columns">
+		    <%= f.label :email %>
+		    <%= f.text_field :email %>
+		  </div>
+		  <div class="large-10 large-centered columns">
+		  	<%= f.label :password %>
+		  	<%= f.password_field :password %>	  	
+		  </div>
+		  <div class="large-10 large-centered columns">
+		    <%= f.submit "Sign in", class: "button expand" %>
+		  </div>
+		  <p class="dark text-center">Harding Alum? <%= link_to("Click here to sign up!", signup_path) %></p>
+		<% end %>	
+	</div>
+</div>

@@ -23,7 +23,7 @@ describe "Authentication" do
 	    
 
 		    describe "after visiting a new page" do
-		    	before { click_link "Home" }
+		    	before { click_link("Home", match: :first) }
 		    	it { should_not have_selector("div.alert-box.alert")}
 		    end
 		end
@@ -45,7 +45,7 @@ describe "Authentication" do
 			it { should_not have_link("Sign in", href: signin_path) }
 
 			describe "after signing out" do
-				before { click_link('Sign out') }
+				before { click_link('Sign out', match: :first) }
 
 				it { should have_link ('Sign in') }
 				it { should_not have_link ('Sign out') }
