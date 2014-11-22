@@ -1,6 +1,5 @@
+//= depend_on_asset "map.jpg"
 @import "foundation";
-
-
 
 html body {
 	background: asset_url("map.jpg") no-repeat center center fixed;

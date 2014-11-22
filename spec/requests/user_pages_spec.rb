@@ -44,10 +44,35 @@ describe "User pages" do
 
 			it "should list all users" do
 				User.paginate(page: 1).each do |u|
-					expect(page).to have_selector("li", text: u.name, text: u.city, text: u.state) 
+					expect(page).to have_selector("li", text: u.name, 
+														text: u.city, 
+														text: u.state,
+														text: u.job_title,
+														text: u.company_or_organization) 
 				end	
 			end
 		end
+
+		describe "searching for a user" do
+			let(:search_user) { FactoryGirl.create(:user,   name:  "Find Me",
+															email: "findme@domain.com", 
+															city:  "A City",
+															state: "Arkansas" ) }
+			describe "by name" do
+				before do 
+					fill_in "Search for Alumni",  with: search_user.name
+					click_button "Search"
+				end
+
+					it "should list the user" do
+						expect(page).to have_content(search_user.name)
+						expect(page).to have_content(search_user.job_title)
+						expect(page).not_to have_content(user.name) 
+					end
+			end
+		end
+
+
 
 		describe "delete links" do
 			it { should_not have_link("delete") }

@@ -1,6 +1,20 @@
 <% provide(:title, "Alumni") %>
-<div class="large-10 columns">
+
   <h1>CS Alumni</h1>
+
+<%= search_form_for @search do |f| %>
+<div class="large-6 columns">
+	<%= f.label :name_or_city_or_state_cont, "Search for Alumni" %>
+	<%= f.text_field :name_or_city_or_state_cont, 
+											placeholder: "Search by name or location" %>
+	<div>
+		<%= f.submit "Search", class: "button" %>
+	</div>
+</div>
+
+	
+<% end %>
+<div class="large-10 columns">
 
   <%= will_paginate @collection, renderer: FoundationPagination::Rails %>
 
