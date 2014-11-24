@@ -9,7 +9,7 @@
 User.create!(name:      "Brent Pendergraft",
       			 email:     "myemail@domain.com",
       			 city:      "SomeCity",
-             state:     "TX",
+             state:     "Texas",
              job_title: "Some Job",
              company_or_organization: "some company",
       			 password:  "foobar",
@@ -20,7 +20,7 @@ User.create!(name:      "Brent Pendergraft",
   name  = Faker::Name.name
   email = "email-#{n+1}@domain.com"
   city  = Faker::Address.city
-  state = Faker::Address.state_abbr
+  state = Faker::Address.state
   job_title = Faker::Name.title
   company = Faker::Company.name
   password = "password"
