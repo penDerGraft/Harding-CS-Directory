@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :password, length: { minimum: 6 }, allow_blank: true
 	validates :job_title, :company_or_organization, presence: true, length: { maximum: 255 }
+	geocoded_by :address
+	after_validation :geocode, if: ->(user){ user.city_changed? || user.state_changed? } 
 
 	def User.new_auth_token
 		SecureRandom.urlsafe_base64
@@ -17,6 +19,14 @@ class User < ActiveRecord::Base
 	def User.digest(token)
 		Digest::SHA1.hexdigest(token.to_s)
 	end
+
+	def address
+  		[city, state].compact.join(', ')
+	end
+
+	def gmaps4rails_infowindow
+      link_to user.name, user
+    end
 
 	private
 		def create_auth_token

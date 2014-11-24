@@ -3,8 +3,8 @@
 	  <% if @user.errors.any? %>
 	    <div>
 	      <div data-alert class="alert-box alert radius text-center">
-	      	<%= content_tag(:span, "There were") %>  
-	      	<%= content_tag(:span, pluralize(@user.errors.count, "error")) %>
+	      	<%= content_tag(:span, "The form had the following") %>  
+	      	<%= content_tag(:span, pluralize(@user.errors.count, "issue")) %>
 			<%=  link_to raw('&times;'), '#', class: "close" %>
 	      </div>       
 	     	<ul class="panel callout radius">

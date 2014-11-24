@@ -1,0 +1,19 @@
+<% provide(:title, "Alumni Map") %>
+
+  <h1>Alumni map</h1>
+
+<div class="large-12 columns">
+  <div id="map" class="large-12 columns" style='height: 500px;'></div>
+</div>
+
+<% content_for :scripts do %> 
+	<script>
+		handler = Gmaps.build('Google');
+		handler.buildMap({ provider: {styles: mapStyle}, internal: {id: 'map'}}, function(){
+		  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+		  handler.bounds.extendWith(markers);
+		  handler.fitMapToBounds();
+		});
+	</script>
+<% end %>	
+

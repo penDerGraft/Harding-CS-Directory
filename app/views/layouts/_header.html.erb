@@ -16,7 +16,13 @@
 					<li><%= link_to 'Update Info', edit_user_path(current_user) %></li>
 				</ul>
 			</li>
-			<li><%= link_to 'Find Alumni', users_path %></li>	
+			<li class='has-dropdown'>
+				<%= link_to 'Find Alumni', users_path %>
+				<ul class="dropdown">
+					<li><%= link_to 'Search', users_path %></li>
+					<li><%= link_to 'Alumni map', map_path %></li>
+				</ul>
+			</li>	
 			<li><%= link_to 'Sign out', signout_path, method: "delete" %></li>	
 		<% else %>
 			<li><%= link_to 'Home', root_path %></li>

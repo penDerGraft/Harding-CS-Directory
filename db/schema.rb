@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117203145) do
+ActiveRecord::Schema.define(version: 20141123010140) do
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20141117203145) do
     t.string   "state"
     t.string   "job_title"
     t.string   "company_or_organization"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token"

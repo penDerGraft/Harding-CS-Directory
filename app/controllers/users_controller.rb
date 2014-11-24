@@ -40,13 +40,20 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     set_user 
     @user.destroy
     flash[:success] = "User was successfully deleted"
     redirect_to users_url 
+  end
+
+  def map
+    @users = User.all
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.infowindow render_to_string(:partial => "/users/map_template", :locals => { :user => user})
+    end
   end
 
   private
