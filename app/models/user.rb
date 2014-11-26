@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 	validates :password, length: { minimum: 6 }, allow_blank: true
 	validates :job_title, :company_or_organization, presence: true, length: { maximum: 255 }
 	geocoded_by :address
-	after_validation :geocode, if: ->(user){ user.city_changed? || user.state_changed? } 
+	after_validation :geocode
 
 	def User.new_auth_token
 		SecureRandom.urlsafe_base64
